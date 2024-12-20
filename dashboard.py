@@ -17,7 +17,7 @@ This application compares the performance of models trained with minimal preproc
 """)
 
 # Load datasets
-raw_data_path = "heart_failure_raw.csv"
+raw_data_path = "https://raw.githubusercontent.com/vvignesh04/fds/refs/heads/main/heart_failure_raw_with_inconsistencies_1000_rows%20(2).csv"
 preprocessed_data_path = "preprocessed_dataset.csv"
 
 try:
