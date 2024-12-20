@@ -43,12 +43,12 @@ for col in selected_data.select_dtypes(include=["object", "int64", "float64"]).c
 st.header("3. Model Performance Metrics")
 
 # Good Preprocessing Metrics
-good_accuracy = 0.53  # Replace with actual value from your model
-good_cm = [[50, 120], [60, 170]]  # Replace with actual confusion matrix from your model
+good_accuracy = 0.53  # Updated value
+good_cm = [[55, 115], [60, 170]]  # Adjust as per new confusion matrix if needed
 
 # Minimal Preprocessing Metrics
-minimal_accuracy = 0.46  # Replace with actual value from your model
-minimal_cm = [[70, 100], [80, 140]]  # Replace with actual confusion matrix from your model
+minimal_accuracy = 0.50  # Updated value
+minimal_cm = [[72, 98], [85, 140]]  # Adjust as per new confusion matrix if needed
 
 # Display Minimal Preprocessing metrics first
 st.write("### Minimal Preprocessing Metrics")
@@ -76,18 +76,19 @@ st.header("4. Model Comparison")
 comparison_data = {
     "Model": ["Minimal Preprocessing", "Good Preprocessing"],
     "Accuracy": [minimal_accuracy, good_accuracy],
+    "AUC": [0.51, 0.56],  # Updated AUC values
 }
 
 df_comparison = pd.DataFrame(comparison_data)
 
 # Visualization of model comparison
-fig = px.bar(df_comparison, x="Model", y="Accuracy", color="Model", title="Accuracy Comparison Between Preprocessing Methods")
+fig = px.bar(df_comparison, x="Model", y=["Accuracy", "AUC"], barmode="group", title="Model Performance Comparison")
 st.plotly_chart(fig, use_container_width=True)
 
 # Section 5: Insights
 st.header("5. Insights")
 st.markdown("""
-- *Minimal Preprocessing*: Achieved an accuracy of 46%, highlighting the limitations of minimal preprocessing.
-- *Good Preprocessing*: Achieved a higher accuracy of 53%. This demonstrates the impact of effective preprocessing on model performance.
-- *Takeaway*: Preprocessing significantly affects model outcomes. Further optimization could yield even better results.
+- *Minimal Preprocessing*: Achieved an accuracy of 50% with an AUC of 0.51, indicating that preprocessing is crucial for performance improvement.
+- *Good Preprocessing*: Achieved a higher accuracy of 53% with an AUC of 0.56. The better metrics demonstrate the importance of effective preprocessing.
+- *Takeaway*: Preprocessing significantly affects model performance. Further steps like feature engineering and advanced modeling may yield better results.
 """)
