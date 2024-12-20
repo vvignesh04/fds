@@ -80,15 +80,15 @@ st.pyplot(fig)
 st.header("4. ROC Curve Comparison")
 
 # Plot ROC curves
-plt.figure(figsize=(10, 6))
-plt.plot(fpr_minimal, tpr_minimal, label=f'Minimal Preprocessing (AUC = {auc_minimal:.2f})', linestyle='--', color='blue')
-plt.plot(fpr_good, tpr_good, label=f'Good Preprocessing (AUC = {auc_good:.2f})', linestyle='-', color='green')
-plt.plot([0, 1], [0, 1], 'k--', lw=1)  # Random guess line
-plt.xlabel('False Positive Rate')
-plt.ylabel('True Positive Rate')
-plt.title('ROC Curve Comparison')
-plt.legend(loc='lower right')
-st.pyplot(plt)
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.plot(fpr_minimal, tpr_minimal, label=f'Minimal Preprocessing (AUC = {auc_minimal:.2f})', linestyle='--', color='blue')
+ax.plot(fpr_good, tpr_good, label=f'Good Preprocessing (AUC = {auc_good:.2f})', linestyle='-', color='green')
+ax.plot([0, 1], [0, 1], 'k--', lw=1, color='grey')  # Random guess line
+ax.set_xlabel('False Positive Rate')
+ax.set_ylabel('True Positive Rate')
+ax.set_title('ROC Curve Comparison')
+ax.legend(loc='lower right')
+st.pyplot(fig)
 
 # Section 5: Model Comparison
 st.header("5. Model Comparison")
