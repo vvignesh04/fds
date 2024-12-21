@@ -43,14 +43,14 @@ for col in selected_data.select_dtypes(include=["object", "int64", "float64"]).c
 st.header("3. Model Performance Metrics")
 
 # Good Preprocessing Metrics
-good_accuracy = 0.53  # Updated value
+good_accuracy = 0.52  # Updated value
 good_cm = [[55, 115], [60, 170]]  # Adjust as per new confusion matrix if needed
 fpr_good = [0.0, 0.3, 0.7, 1.0]  # Replace with actual FPR from the model
 tpr_good = [0.0, 0.5, 0.8, 1.0]  # Replace with actual TPR from the model
 auc_good = auc(fpr_good, tpr_good)  # Calculate AUC
 
 # Minimal Preprocessing Metrics
-minimal_accuracy = 0.50  # Updated value
+minimal_accuracy = 0.51  # Updated value
 minimal_cm = [[72, 98], [85, 140]]  # Adjust as per new confusion matrix if needed
 fpr_minimal = [0.0, 0.4, 0.6, 1.0]  # Replace with actual FPR from the model
 tpr_minimal = [0.0, 0.4, 0.7, 1.0]  # Replace with actual TPR from the model
